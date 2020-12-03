@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">
+  JCart Admin
+</title>
+    
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+
+<link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}" />
+
+<link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css}" />
+
+<link rel="stylesheet" th:href="@{https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css}" />
+
+<link rel="stylesheet" th:href="@{/assets/dist/css/AdminLTE.min.css}" />
+
+<link rel="stylesheet" th:href="@{/assets/dist/css/skins/skin-blue.min.css}" />
+</head>
+  <body>
+  
+  <div class="wrapper">
+  
+  	<!-- MAIN HEADER -->
+  		<header  class="main-header">
+  	
+  	<!-- Logo -->
+  	
+  		<a class="logo" th:href="@{/home}" href="#">
+  		.....
+  		</a>
+  
+  	<!-- Header NavBar -->
+  		
+  		<nav class="navbar navbar-static-top" role="navigation">
+  			....
+  		</nav>
+
+  	</header>
+  	
+  	<!-- Left SIdeBar column. It contains the logo and sidebar -->
+  		<aside class="main-sidebar">
+  	
+  	<!-- sidebar: Styles can be found in sidebar.less -->
+  		<section class="sidebar">
+  	
+  	<!-- SIde User Panel (Optional) -->
+  	
+  		<div class="user-panel">
+  		.....
+  		</div>
+  		
+  		
+  	<!-- SIdebar Menu -->
+  	<ul class="sidebar-menu">
+  			
+  	<li>
+  		<a href="#" th:href="@{/home}"><i class="fa fa-home"></i><span>Home</span></a>
+  	</li>
+  		
+  	<li>
+      <a href="#" th:href="@{'/categories'}"><i class="fa fa-folder-open"></i> <span>Categories</span></a>
+    </li>
+                
+    
+    <li>
+      <a href="#" th:href="@{'/products'}"><i class="fa fa-file"></i> <span>Products</span></a>
+    </li>
+                
+    
+    <li>
+      <a href="#" th:href="@{'/orders'}"><i class="fa fa-cart-arrow-down"></i> <span>Orders</span></a>
+    </li>
+                
+    
+    <li>
+      <a href="#" th:href="@{'/customers'}"><i class="fa fa-smile-o"></i> <span>Customers</span></a>
+    </li>
+                
+    
+    <li>
+      <a href="#" th:href="@{'/users'}"><i class="fa fa-users"></i> Users</a>
+    </li>
+                
+    
+    <li>
+      <a href="#" th:href="@{'/roles'}"><i class="fa fa-user"></i> Roles</a>
+    </li>
+                
+    
+    <li>
+      <a href="#" th:href="@{'/permissions'}"><i class="fa fa-shield"></i> Permissions</a>
+    </li>            
+              
+  </ul>
+  	
+  		</section>	
+  	
+  </aside>
+  
+  <!-- Content Wrapper. Contains Page Content -->
+  
+  	<div class="content-wrapper">
+  		<!-- Content Header (Page Header) -->
+  		
+  		<div layout:fragment="pageHeader">
+  			<section class="content-header"> 
+  			
+  				<h1>Header Title</h1>
+  			
+  			</section>
+  		</div>
+  		
+  <!-- Main Content -->
+  
+  	<section class="content">
+  		<div layout:fragment="content">
+  			<!-- My Page Content Here -->
+  		</div>
+  	</section>
+  	
+  	</div>
+  
+  <!-- Main Footer -->
+  
+  	<footer class="main-footer">
+  			JCART E-Store ft
+  	</footer>
+  	
+   </div>
+   </body>
+</html>

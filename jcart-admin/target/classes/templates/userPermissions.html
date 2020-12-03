@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<body>
+
+	<span sec:authentication="principal.user.name">User</span>
+
+	<p>
+		Welcome <span th:text="${authenticatedUser.user.name}">User</span>
+	</p>
+	
+	<ul>
+		<li sec:authorize="hasRole('ROLE_MANAGE_CATEGORIES')">
+			<a href="#" th:href="@{/categories}">
+				<i class="fa fa-folder-open"></i><span>Categories</span>
+			</a>
+		</li>
+		
+		<li sec:authorize="hasRole('ROLE_MANAGE_PRODUCTS')">
+			<a href="#" th:href="@{/products}">
+				<i class="fa fa-folder-open"></i><span>Products</span>
+			</a>
+		</li>
+	</ul>
+	
+</body>
+</html>
