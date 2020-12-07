@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/guestLayout">
+
+<head>
+	<title>Forgot Password</title>
+</head>
+<body>
+	<div layout:fragment="content">
+	 	<form action="forgotPwd" th:action="@{/forgotPwd}" method="post">
+	 		<input type="email" placeholder="Email" class="form-control" name="email" />
+	 		<button type="submit" class="btn btn-primary btn-block bt-flat" 
+	 		th:text="#{label.submit}">Submit</button>
+	 	</form>
+	</div>
+</body>
+</html>

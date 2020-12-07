@@ -15,8 +15,6 @@
   	<module>jcart-core</module>
   	<module>jcart-admin</module>
   	<module>jcart-site</module>
-  	<module>jcart-sitew</module>
-  	<module>testing-web</module>
   </modules>
   
   <dependencyManagement>

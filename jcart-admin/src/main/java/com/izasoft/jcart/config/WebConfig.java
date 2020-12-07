@@ -1,21 +1,20 @@
-package com.izasoft.jcart.configuration;
+package com.izasoft.jcart.config;
 
 
 import javax.servlet.Filter;
-import javax.servlet.FilterRegistration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import com.izasoft.jcart.security.PostAuthorizationFilter;
 
@@ -60,6 +59,17 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		registrationBean.setFilter(postAuthorizationFilter);
 		registrationBean.setOrder(Integer.MAX_VALUE);
 		return registrationBean;
+	}
+	
+	@Bean
+	public ClassLoaderTemplateResolver emailTemplateResolver() {
+		ClassLoaderTemplateResolver emailTemplateResolver = new ClassLoaderTemplateResolver();
+		emailTemplateResolver.setPrefix("email-templates/");
+		emailTemplateResolver.setSuffix(".html");
+		emailTemplateResolver.setTemplateMode("HTML5");
+		emailTemplateResolver.setCharacterEncoding("UTF-8");
+		emailTemplateResolver.setOrder(2);
+		return emailTemplateResolver;
 	}
 	
 	

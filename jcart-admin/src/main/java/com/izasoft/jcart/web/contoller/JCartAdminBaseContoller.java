@@ -1,4 +1,4 @@
-package com.izasoft.jcart.controller;
+package com.izasoft.jcart.web.contoller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.izasoft.jcart.security.AuthenticatedUser;
 
-public class JCartAdminBaseContoller {
+public abstract class JCartAdminBaseContoller {
 
 	@Autowired private MessageSource messageSource;
+	
+	protected abstract String getHeaderTitle();
 	
 	public String getMessage(String code) {
 		return messageSource.getMessage(code, null, null);

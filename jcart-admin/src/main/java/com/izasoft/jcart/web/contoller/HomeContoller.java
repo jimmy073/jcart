@@ -1,4 +1,4 @@
-package com.izasoft.jcart.controller;
+package com.izasoft.jcart.web.contoller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,5 +9,11 @@ public class HomeContoller extends JCartAdminBaseContoller {
 	@RequestMapping("/home")
 	public String home(Model model) {
 		return "home";
+	}
+
+	@Override
+	protected String getHeaderTitle() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

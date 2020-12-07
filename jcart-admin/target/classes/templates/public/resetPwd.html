@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/guestLayout">
+
+	<head>
+		<title>reset password</title>
+	</head>
+	<body>
+		<div layout:fragment="content">
+			<form action="resetPwd" th:action="@{/resetPwd}" method="get">
+				<input type="hidden" name="email" th:value="${email}">
+				<input type="hidden" name="token" th:value="${token}">
+				
+				<input class="form-control" type="password" name="password" placeholder="New Password">
+				<input class="form-control" type="password" name="confPassword" placeholder="Confirm Password">
+				<button type="submit" class="btn btn-primary btn-block btn-flat" 
+				th:text="#{label.submit}">Submit</button>
+			</form>
+		</div>
+	</body>
+</html>
