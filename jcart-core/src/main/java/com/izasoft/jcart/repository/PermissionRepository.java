@@ -6,4 +6,5 @@ import com.izasoft.jcart.domain.Permission;
 
 public interface PermissionRepository extends JpaRepository<Permission, Integer> {
 
+	
 }

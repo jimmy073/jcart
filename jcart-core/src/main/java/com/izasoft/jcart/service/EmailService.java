@@ -36,7 +36,7 @@ public class EmailService {
 			
 			javaMailSender.send(message.getMimeMessage());
 			
-		} catch (MailException | MessagingException e) {
+		} catch (Exception e) {
 			logger.error(e);
 			throw new JCartException("Unable to Send Email");
 			}

@@ -1,9 +1,9 @@
 package com.izasoft.jcart.config;
 
-
 import javax.servlet.Filter;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -20,11 +20,13 @@ import com.izasoft.jcart.security.PostAuthorizationFilter;
 
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter{
+	@Autowired private MessageSource messageSource;
+	@Autowired private PostAuthorizationFilter postAuthorizationFilter;
+	
 
-	@Autowired 
-	private MessageSource messageSource;
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
+		super.addViewControllers(registry);
 		registry.addViewController("/login").setViewName("public/login");
 		registry.addRedirectViewController("/", "home");
 	}
@@ -42,11 +44,10 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		return new SpringSecurityDialect();
 	}
 	
-	@Autowired 
-	private PostAuthorizationFilter postAuthorizationFilter;
+	
 	
 	@Bean
-	public FilterRegistrationBean securityFilterChain(Filter securityFilter) {
+	public FilterRegistrationBean securityFilterChain(@Qualifier(AbstractSecurityWebApplicationInitializer.DEFAULT_FILTER_NAME)Filter securityFilter) {
 		FilterRegistrationBean registration = new FilterRegistrationBean<Filter>(securityFilter);
 		registration.setOrder(Integer.MAX_VALUE-1);
 		registration.setName(AbstractSecurityWebApplicationInitializer.DEFAULT_FILTER_NAME);
@@ -68,7 +69,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		emailTemplateResolver.setSuffix(".html");
 		emailTemplateResolver.setTemplateMode("HTML5");
 		emailTemplateResolver.setCharacterEncoding("UTF-8");
-		emailTemplateResolver.setOrder(2);
+		//emailTemplateResolver.setOrder(1);
 		return emailTemplateResolver;
 	}
 	
