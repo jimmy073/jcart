@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layouts/mainLayout">
+<head>
+	<title>Roles - Edit</title>
+</head>
+<body>
+<div layout:fragment="content">
+	<div class="box box-waring">
+		<div class="box-header with-border">
+			<h3 class="box-title">Edit Role</h3>
+		</div>
+		<div class="box-body">
+		<form role="form" th:object="${role}" method="post" th:action="@{/roles/{id} (id=${role.id})}">
+		<p th:if="${#fields.hasErrors('global')}" th:errors="*{global}" th:class="text-red">Incorrect data</p>
+		
+		<div class="form-group">
+		<label>Name</label>
+		<input readonly="readonly" type="text" th:field="*{name}" name="name" class="form-control">
+		</div>
+		
+		<div class="form-group">
+		<label>Description</label>
+		<textarea rows="3" th:field="*{description}" name="description" class="form-contol" placeholder="Enter Role Description"></textarea>
+		</div>
+		
+		<div class="form-group">
+		<label>Permissions</label>
+		<div>
+			<p th:each="permission,rowStat:${permissionsList}">
+			<input type="text" th:field="*{permissions[__${rowStat.index}__].id}" th:value="${permission.id}">
+			<label th:text="${permission.name}">Permission</label>
+			</p>
+		</div>
+		</div>
+		
+		<div class="box-footer">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+		
+		</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

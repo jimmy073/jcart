@@ -9,7 +9,7 @@ import com.izasoft.jcart.domain.Permission;
 public class PermissionService {
 	@Autowired PermissionRepository permissionRepository;
 	
-	public Permission findRole(Integer id) {
+	public Permission findPermission(Integer id) {
 		return permissionRepository.findById(id).orElse(null);
 	}
 }

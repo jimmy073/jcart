@@ -2,7 +2,6 @@ package com.izasoft.jcart.security;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -71,13 +70,38 @@ public class SecurityService {
 		if(permissions !=null) {
 			for(Permission permission: permissions) {
 				if(permission.getId() != null) {
-					Permission p = permissionService.findRole(permission.getId());
+					Permission p = permissionService.findPermission(permission.getId());
 					persistedPermission.add(p);
 				}
 			}
 		}
 		role.setPermissions(persistedPermission);
 		return role;
+	}
+	
+	public Role updateRole(Role role) {
+		Role persistedRole = getRoleById(role.getId());
+		if(persistedRole == null) {
+			throw new JCartException("Role "+role.getId()+" doesn't exist");
+		}
+		
+		persistedRole.setDescription(role.getDescription());
+		List<Permission> updatedPermissions = new ArrayList<Permission>();
+		List<Permission> permissions = role.getPermissions();
+		
+		if(permissions != null) {
+			for(Permission permission: permissions) {
+				if(permission.getId()!=null) {
+					updatedPermissions.add(permissionService.findPermission(permission.getId()));
+				}
+			}
+		}
+		persistedRole.setPermissions(updatedPermissions);
+		return roleRepository.save(persistedRole);
+	}
+
+	public Role getRoleById(Integer id) {
+		return this.roleRepository.findById(id).orElse(null);
 	}
 	
 

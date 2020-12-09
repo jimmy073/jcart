@@ -30,8 +30,7 @@ public class PermissionController extends JCartAdminBaseContoller {
 	public String listPermissions(Model model) {
 		List<Permission> list = securityService.getAllPermissions();
 		model.addAttribute("permissions", list);
-		return viewPrefix+
-				"permissions";
+		return viewPrefix+"permissions";
 	}
 	
 	
