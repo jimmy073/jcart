@@ -24,7 +24,7 @@ import com.izasoft.jcart.security.SecurityUtils;
 import com.izasoft.jcart.web.validators.RoleValidator;
 
 @Controller
-@Secured(SecurityUtils.MANAGE_ROLES)
+//@Secured(SecurityUtils.MANAGE_ROLES)
 public class RoleController extends JCartAdminBaseContoller {
 
 	public static final String viewPrefix ="roles/";

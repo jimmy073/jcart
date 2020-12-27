@@ -13,9 +13,9 @@ import com.izasoft.jcart.domain.Permission;
 import com.izasoft.jcart.domain.Role;
 import com.izasoft.jcart.domain.User;
 import com.izasoft.jcart.repository.PermissionRepository;
-import com.izasoft.jcart.repository.PermissionService;
 import com.izasoft.jcart.repository.RoleRepository;
 import com.izasoft.jcart.repository.UserRepository;
+import com.izasoft.jcart.repositoryService.PermissionService;
 
 @Service
 @Transactional

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layouts/mainLayout">
+      
+<head>
+     <title>Categories - New</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		
+		<div class="box box-warning">
+			<div class="box-header with-border">
+				<h3 class="box-title" >Create New Category</h3>
+			</div>
+			<div class="box-body">
+				<form method="post" role="form" th:action="@{/categories}" th:object="${category}">
+				<p th:if="${#fields.hasErrors('global')}" th:errors="*{global}"
+				  th:class="text-red">Incorrect Data</p>
+				
+				<div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+					<label>Name</label>
+					<input placeholder="Enter Category Name" type="text" class="form-control" 
+					name="name" th:field="*{name}" />
+					<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+						th:class="text-red" >Incorrect Data</p>
+				</div>
+				
+				<div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+					<label>Description</label>
+					<textarea placeholder="Enter Category Name" rows="3" class="form-control" 
+					name="description" th:field="*{description}"> </textarea>
+					<p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+						th:class="text-red" >Incorrect Data</p>
+				</div>
+				
+				<div class="form-group" th:classappend="${#fields.hasErrors('displayOrder')}? 'has-error'">
+					<label>Display Order</label>
+					<input type="number" class="form-control" name="displayOrder" 
+					placeholder="Enter Display Order" th:field="*{displayOrder}" />		
+					<p th:class="text-red" th:if="${#fields.hasErrors('displayOrder')}" 
+					th:errors="*{displayOrder}">Incorrect Data</p>		
+				</div>
+				
+				<div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+				
+				</form>
+			</div>			
+		</div>
+		
+	</div>
+</body>
+</html>
