@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.izasoft.jcart.common.service.CatalogService;
 import com.izasoft.jcart.domain.Category;
-import com.izasoft.jcart.service.CatalogService;
 import com.izasoft.jcart.web.validators.CategoryValidator;
 
 @Controller
@@ -58,7 +58,7 @@ public class CategoryController extends JCartAdminBaseContoller {
 		Category persistedCategory = catalogService.createCategory(category);
 		logger.debug("Created new category with id : {} and name: {}", persistedCategory.getId(), persistedCategory.getName());
 		redirectAttributes.addFlashAttribute("info", "Category Created Successfully");
-		return viewPrefix+"redirect:/categories";
+		return "redirect:/categories";
 	}
 	
 	@RequestMapping(value = "/categories/{id}", method = RequestMethod.GET)

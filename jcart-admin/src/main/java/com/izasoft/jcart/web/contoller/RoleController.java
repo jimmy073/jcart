@@ -61,11 +61,13 @@ public class RoleController extends JCartAdminBaseContoller {
 			Model model, RedirectAttributes redirectAttributes) {
 		roleValidator.validate(role, result);
 		if(result.hasErrors()) {
+			System.out.println("Created Failed");
 			return viewPrefix+"create_role";
 		}
 		Role persistedRole = securityService.createRole(role);
 	    logger.debug("Created new Role with Id : {} and name: {} ", persistedRole.getId(), persistedRole.getName());
 		redirectAttributes.addAttribute("info", "Role Created Successfully");
+		System.out.println("Created Well");
 		return "redirect:/roles";
 	}
 	

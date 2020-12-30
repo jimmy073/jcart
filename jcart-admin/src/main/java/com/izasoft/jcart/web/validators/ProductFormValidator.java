@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import com.izasoft.jcart.common.service.CatalogService;
 import com.izasoft.jcart.domain.Product;
-import com.izasoft.jcart.service.CatalogService;
 
 @Component
 public class ProductFormValidator implements Validator{

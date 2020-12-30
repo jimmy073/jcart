@@ -17,8 +17,9 @@
 			</div>
 			<div class="box-body">
 				<form method="post" role="form" th:action="@{/categories}" th:object="${category}">
-				<p th:if="${#fields.hasErrors('global')}" th:errors="*{global}"
-				  th:class="text-red">Incorrect Data</p>
+			<p 
+			th:if="${#fields.hasErrors('global')}" 
+			th:errors="*{global}" th:class="text-red">Incorrect data</p>
 				
 				<div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
 					<label>Name</label>

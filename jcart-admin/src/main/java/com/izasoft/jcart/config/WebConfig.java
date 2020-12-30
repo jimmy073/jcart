@@ -23,7 +23,6 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 	@Autowired private MessageSource messageSource;
 	@Autowired private PostAuthorizationFilter postAuthorizationFilter;
 	
-
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		super.addViewControllers(registry);

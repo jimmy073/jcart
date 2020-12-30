@@ -60,6 +60,8 @@ public class SecurityService {
 	public Role createRole(Role role) {
 		Role roleByName = getRoleByName(role.getName());
 		
+		System.out.println("Create Role Service");
+		
 		if(roleByName != null) {
 			throw new JCartException("Role "+role.getName()+" already exist"); 
 		}
@@ -76,7 +78,8 @@ public class SecurityService {
 			}
 		}
 		role.setPermissions(persistedPermission);
-		return role;
+		
+		return roleRepository.save(role);
 	}
 	
 	public Role updateRole(Role role) {

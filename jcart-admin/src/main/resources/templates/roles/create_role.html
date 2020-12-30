@@ -14,7 +14,7 @@
 				<h3 class="box-header">Create New Role</h3>
 			</div>
 			<div class="box-body">
-			<form th:action="#{/roles}" role="form" th:object="${role}" method="post">
+			<form th:action="@{/roles}" role="form" th:object="${role}" method="post">
 				<p th:if="${#fields.hasErrors('global')}" th:errors="*{global}" th:class="text-red">Incorrect data</p>
 				
 				<div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error' ">

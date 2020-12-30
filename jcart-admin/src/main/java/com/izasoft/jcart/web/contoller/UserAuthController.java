@@ -21,9 +21,9 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import com.izasoft.jcart.JCartException;
+import com.izasoft.jcart.common.service.EmailService;
+import com.izasoft.jcart.common.service.JCLogger;
 import com.izasoft.jcart.security.SecurityService;
-import com.izasoft.jcart.service.EmailService;
-import com.izasoft.jcart.service.JCLogger;
 import com.izasoft.jcart.web.utils.WebUtils;
 @Controller
 public class UserAuthController extends JCartAdminBaseContoller {

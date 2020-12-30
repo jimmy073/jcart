@@ -6,8 +6,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import com.izasoft.jcart.common.service.JCLogger;
 import com.izasoft.jcart.security.AuthenticatedUser;
-import com.izasoft.jcart.service.JCLogger;
 
 public abstract class JCartAdminBaseContoller {
 

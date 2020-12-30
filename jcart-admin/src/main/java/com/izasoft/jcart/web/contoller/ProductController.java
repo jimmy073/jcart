@@ -24,16 +24,16 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.izasoft.jcart.JCartException;
+import com.izasoft.jcart.common.service.CatalogService;
 import com.izasoft.jcart.domain.Category;
 import com.izasoft.jcart.domain.Product;
 import com.izasoft.jcart.security.SecurityUtils;
-import com.izasoft.jcart.service.CatalogService;
 import com.izasoft.jcart.web.models.ProductForm;
 import com.izasoft.jcart.web.utils.WebUtils;
 import com.izasoft.jcart.web.validators.ProductFormValidator;
 
 @Controller
-@Secured(SecurityUtils.MANAGE_PRODUCTS)
+//@Secured(SecurityUtils.MANAGE_PRODUCTS)
 public class ProductController extends JCartAdminBaseContoller {
 
 	private static final String viewPrefix = "products/";

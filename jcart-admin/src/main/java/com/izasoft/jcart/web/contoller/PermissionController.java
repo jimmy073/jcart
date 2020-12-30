@@ -14,7 +14,7 @@ import com.izasoft.jcart.security.SecurityService;
 import com.izasoft.jcart.security.SecurityUtils;
 
 @Controller
-@Secured(SecurityUtils.MANAGE_PERMISSIONS)
+//@Secured(SecurityUtils.MANAGE_PERMISSIONS)
 public class PermissionController extends JCartAdminBaseContoller {
 
 	public static final String viewPrefix = "permissions/";

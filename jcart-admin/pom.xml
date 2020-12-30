@@ -65,7 +65,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
     <artifactId>thymeleaf-layout-dialect</artifactId>
 	</dependency>
   	
-  	<!-- NOT YET EXPLAINED DEPENDENCY -->
+  	<!-- UPLOADIG IMAGES -->
   	<dependency>
 		<groupId>commons-io</groupId>
 		<artifactId>commons-io</artifactId>
