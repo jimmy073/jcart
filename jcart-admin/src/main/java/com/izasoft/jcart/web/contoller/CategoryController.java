@@ -52,6 +52,7 @@ public class CategoryController extends JCartAdminBaseContoller {
 		categoryValidator.validate(category, result);
 		
 		if(result.hasErrors()) {
+			model.addAttribute("category",category);
 			return viewPrefix+"create_category";
 		}
 		

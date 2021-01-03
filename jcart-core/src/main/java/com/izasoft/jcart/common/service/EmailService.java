@@ -15,7 +15,7 @@ public class EmailService {
 	
 	private static final JCLogger logger = JCLogger.getLogger(EmailService.class);
 	
-	@Autowired JavaMailSender javaMailSender;
+	@Autowired  JavaMailSender javaMailSender;
 	
 	@Value("${support.email}")
 	String suppotEmail;
